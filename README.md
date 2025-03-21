@@ -63,7 +63,7 @@ path variable: 'diet' &lt;String&gt; - REQUIRED
 ```
 
 ### [`/new`](http://localhost:8080/animals/new) (POST)
-Create a new artic animal entry
+Create a new arctic animal entry
 
 ### Request Body
 ```
