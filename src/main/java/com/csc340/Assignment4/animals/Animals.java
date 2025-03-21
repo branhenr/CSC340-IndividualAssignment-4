@@ -16,6 +16,7 @@ public class Animals {
     private String diet;
 
     @Column(nullable = false)
+    
     private  String animalClass;
 
     private String description;
