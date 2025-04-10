@@ -4,9 +4,11 @@ import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
 
-@RestController
+@Controller
 @RequestMapping("/animals")
 
 public class AnimalController {
@@ -15,13 +17,20 @@ public class AnimalController {
     private AnimalService service;
 
     @GetMapping("/all")
-    public Object getAllAnimals(){
-        return new ResponseEntity<>(service.getAllAnimals(), HttpStatus.OK);
+    public Object getAllAnimals(Model model){
+        //return new ResponseEntity<>(service.getAllAnimals(), HttpStatus.OK);
+        model.addAttribute("animalList", service.getAllAnimals());
+        model.addAttribute("title", "All Animals");
+        return "animal-list";
+
     }
 
     @GetMapping("/{animalId}")
-    public Object getOneAnimal(@PathVariable int animalId){
-        return new ResponseEntity<>(service.getAnimalById(animalId), HttpStatus.OK);
+    public Object getOneAnimal(@PathVariable int animalId, Model model){
+        //return new ResponseEntity<>(service.getAnimalById(animalId), HttpStatus.OK);
+        model.addAttribute("animal", service.getAnimalById(animalId));
+        model.addAttribute("title", "Animal #:" + animalId);
+        return "animal-details";
     }
 
     @GetMapping("/name")
