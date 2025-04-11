@@ -26,7 +26,6 @@
 </ul>
 
 <h1>Animals of Artic</h1>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <h3>1. Emperor Penguins</h3>
 <img src="img/penguin.jpg" class="img-fluid" alt="">
@@ -70,6 +69,17 @@
     <b>Weight/Height:</b> 240-365 lb / 2.2-4.9 ft tall <br>
     <b>Fun Fact:</b> The only deer species to have hair completely covering thier noses. <br>
 </p>
+
+<#list animalList as animal>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">${animal.name}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">${animal.animalClass}</h6>
+        <p class="card-text">${animal.description}</p>
+        <a href="#" class="card-link">View</a>
+    </div>
+</div>
+</#list>
 
 
 </body>

@@ -20,7 +20,7 @@
     </li>
 </ul>
 
-<h1>More Facts About Polar Bears</h1>
+<h1>${animal.name}</h1>
 
 <div class="text-center">
     <img src="img/endanger.jpg" class="rounded" alt="">
