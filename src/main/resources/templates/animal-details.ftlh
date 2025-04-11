@@ -5,36 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <title>Polar Bears</title>
+    <title>Animal Details</title>
 </head>
 <body>
 <ul class="nav">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="index.html">Main</a>
+        <a class="nav-link active" aria-current="page" href="/animals/all">Main</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="about.html">About</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="details.html">Polar Bear</a>
+        <a class="nav-link" href="/animals/createForm">Create New Animal</a>
     </li>
 </ul>
 
-<h1>${animal.name}</h1>
+<div class="container" style="margin-top: 15px;">
+    <h1>${title}</h1>
+    <div class="card">
+        <h5 class="card-header">${animal.name}</h5>
 
-<div class="text-center">
-    <img src="img/endanger.jpg" class="rounded" alt="">
+        <div class="card-body">
+            <span style="float:right"> <a href="/animals/update/${animalId?c}"
+                                          class="btn btn-primary">Edit Animal</a></span>
+            <h5 class="card-title">ID: ${animal.animalId}</h5>
+            <p class="card-text">Name: ${animal.name}</p>
+            <p class="card-text">AnimalClass: ${animal.animalClass}</p>
+            <p class="card-text">Diet: ${animal.diet}</p>
+            <p class="card-text">Description: ${animal.description}</p>
+        <a href="/animals/delete/${animalId}" class="btn btn-danger">Delete
+            Animal</a>
+
+        <a href="/animals/all" class="btn btn-primary">Go back</a>
+    </div>
 </div>
-<ul>
-    <li>Polar bears are endangered due to habitat loss from global warming.</li>
-    <li>Are considered as marine mammals (just like dolphins)</li>
-    <li>The skin under thier fur is black.</li>
-    <li>Can swim up to 6mph.</li>
-    <li>They can swim for days.</li>
-    <li>Unlike other bears, they do not hibernate.</li>
-    <li>Their paws measure up to 30 centimeters.</li>
-    <li>Largest polar bear recroded weighed 2,209 pounds and was nearly 12ft tall.</li>
 
-</ul>
+</div>
 </body>
 </html>

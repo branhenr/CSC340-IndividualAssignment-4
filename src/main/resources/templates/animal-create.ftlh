@@ -16,23 +16,20 @@
 
 <ul class="nav">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="index.html">Main</a>
+        <a class="nav-link active" aria-current="page" href="/animals/all">Main</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="about.html">About</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="details.html">Polar Bear</a>
+        <a class="nav-link" href="/animals/createForm">Create New Animal</a>
     </li>
 </ul>
 
 <div class="container" style="margin-top: 15px;">
-    <h1>create new animal</h1>
+    <h1>${title}</h1>
     <form id="new animal" action="/animals/new" method="post">
         <label for="name">Name</label><input type="text" id="name" name="name"/>
-        <label for="diet">diet</label><input type="text" id="diet" name="diet"/>
         <label for="animalClass">animalClass</label><input type="text" id="animalClass" name="animalClass"/>
-        <label for="description">description</label><input type="text" id="description" name="animalClass"/>
+        <label for="diet">diet</label><input type="text" id="diet" name="diet"/>
+        <label for="description">description</label><input type="text" id="description" name="description"/>
 
         <button type="submit" class="btn btn-primary">Save</button>
         <a href="/animals/all" class="btn btn-outline-danger">Cancel</a>

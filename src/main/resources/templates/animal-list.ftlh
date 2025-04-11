@@ -15,60 +15,14 @@
 <body>
 <ul class="nav">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="index.html">Main</a>
+        <a class="nav-link active" aria-current="page" href="/animals/all">Main</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="about.html">About</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="details.html">Polar Bear</a>
+        <a class="nav-link" href="/animals/createForm">Create New Animal</a>
     </li>
 </ul>
 
 <h1>Animals of Artic</h1>
-
-<h3>1. Emperor Penguins</h3>
-<img src="img/penguin.jpg" class="img-fluid" alt="">
-<p><b>Where they can be found:</b> Antartica <br>
-    <b>Diet:</b>krill, squid, fish, and crustaceans <br>
-    <b>Weight/Height:</b> 42-100 lbs/ 3.7-3.8 ft. <br>
-    <b>Fun Fact:</b> Largest penguins in the world. <br>
-</p>
-
-
-
-<h3>2. Polar Bear</h3>
-<img src="img/bear.jpg" class="img-fluid" alt="">
-<a href="details.html" class="btn btn-primary" role="button" data-bs-toggle="button">More about Polar Bears</a>
-<p><b>Where they can be found:</b> Canada, Greenland, Norway, Russia, and Alaska <br>
-    <b>Diet:</b> Seals, beluga whales, narwhals, walrus<br>
-    <b>Weight/Height:</b> 900-1,600 lbs/ 6.6-8.2 ft long  <br>
-    <b>Fun Fact:</b> Biggest type of bear species worldwide. <br>
-</p>
-
-<h3>3. Artic Fox</h3>
-<img src="img/fox.jpg" class="img-fluid" alt="">
-<p><b>Where they can be found: </b>Europe, Asia, North America, Greenland, Iceland <br>
-    <b>Diet:</b> small mammals, birds, and fish<br>
-    <b>Weight/Height:</b> 7.7-21 lbs/ 43 in long <br>
-    <b>Fun Fact:</b> They are monogamous. <br>
-</p>
-
-<h3>4. Greenland Shark</h3>
-<img src="img/shark.jpg" class="img-fluid" alt="">
-<p><b>Where they can be found:</b> Artic and North Atlantic Oceans <br>
-    <b>Diet:</b> fish, seals, squid, and seabirds <br>
-    <b>Weight/Height:</b> 1,500-2,200 lbs/ 23 ft long <br>
-    <b>Fun Fact:</b> Can live up to around 250-500 years. <br>
-</p>
-
-<h3>5. Reindeer</h3>
-<img src="img/reindeer.jpg" class="img-fluid" alt="">
-<p><b>Where they can be found:</b> Greenland, Scandinavia, Russia, Alaska and Canada <br>
-    <b>Diet:</b> mosses, herbs, ferns, grasses, and trees <br>
-    <b>Weight/Height:</b> 240-365 lb / 2.2-4.9 ft tall <br>
-    <b>Fun Fact:</b> The only deer species to have hair completely covering thier noses. <br>
-</p>
 
 <#list animalList as animal>
 <div class="card">
@@ -76,11 +30,10 @@
         <h5 class="card-title">${animal.name}</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">${animal.animalClass}</h6>
         <p class="card-text">${animal.description}</p>
-        <a href="#" class="card-link">View</a>
+        <a href="/animals/${animal.animalId}" class="card-link">View</a>
     </div>
 </div>
 </#list>
-
 
 </body>
 </html>

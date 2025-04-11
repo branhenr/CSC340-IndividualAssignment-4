@@ -39,8 +39,11 @@ public class AnimalController {
     }
 
     @GetMapping("/diet/{diet}")
-    public Object getAnimalsByDiet(@PathVariable String diet){
-        return new ResponseEntity<>(service.getAnimalsByDiet(diet), HttpStatus.OK);
+    public Object getAnimalsByDiet(@PathVariable String diet, Model model){
+        //return new ResponseEntity<>(service.getAnimalsByDiet(diet), HttpStatus.OK);
+        model.addAttribute("animalList", service.getAnimalsByDiet(diet));
+        model.addAttribute("title", "Animals By Diet" + diet);
+        return "animal-list";
     }
 
     @GetMapping("class/{animalClass}")
@@ -48,22 +51,40 @@ public class AnimalController {
         return new ResponseEntity<>(service.getAnimalsByAnimalsClass(animalClass), HttpStatus.OK);
     }
 
+    @GetMapping("/createForm")
+    public String showCreateForm(Model model){
+        Animals animals = new Animals();
+        model.addAttribute("animal", animals);
+        model.addAttribute("title", "Create New Animal");
+        return "animal-create";
+    }
+
     @PostMapping("/new")
-    public Object addNewAnimal(@RequestBody Animals animal){
-        service.addNewAnimals(animal);
-        return new ResponseEntity<>(service.getAllAnimals(), HttpStatus.CREATED);
+    public Object addNewAnimal(Animals animals, Model model){
+        service.addNewAnimals(animals);
+        //return new ResponseEntity<>(service.getAllAnimals(), HttpStatus.CREATED);
+        return "redirect:/animals/all";
     }
 
-    @PutMapping("/update/{animalId}")
-    public Object updateAnimal(@PathVariable int animalId, @RequestBody Animals animal){
+    @GetMapping("/update/{animalId}")
+    public String showUpdateForm(@PathVariable int animalId, Model model){
+        model.addAttribute("animal", service.getAnimalById(animalId));
+        model.addAttribute("title", "Update Animal");
+        return "animal-update";
+    }
+
+    @PostMapping("/update/{animalId}")
+    public Object updateAnimal(@PathVariable int animalId, Animals animal){
         service.updateAnimal(animalId, animal);
-        return new ResponseEntity<>(service.getAnimalById(animalId), HttpStatus.CREATED);
+        //return new ResponseEntity<>(service.getAnimalById(animalId), HttpStatus.CREATED);
+        return "redirect:/animals/" + animalId;
     }
 
-    @DeleteMapping("/delete/{animalId}")
+    @GetMapping("/delete/{animalId}")
     public Object deleteAnimalById(@PathVariable int animalId){
         service.deleteAnimalById(animalId);
-        return new ResponseEntity<>(service.getAllAnimals(), HttpStatus.OK);
+        //return new ResponseEntity<>(service.getAllAnimals(), HttpStatus.OK);
+        return "redirect:/animals/all";
     }
 
 }
